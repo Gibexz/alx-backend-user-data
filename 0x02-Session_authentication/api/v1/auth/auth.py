@@ -47,6 +47,8 @@ class Auth():
     def session_cookie(self, request=None):
         """
         returns a cookie value from a request
+        
+        Please_NOTE::: cookie_value = session_id
         """
         if request is None:
             return None
