@@ -3,7 +3,9 @@
 module: session_auth.py
 """
 from api.v1.auth.auth import Auth
+from api.v1.views import app_views
 from models.user import User
+from flask import request, jsonify
 import uuid
 
 
