@@ -5,7 +5,7 @@ module: session_auth.py
 from api.v1.auth.auth import Auth
 from api.v1.views import app_views
 from models.user import User
-from flask import request, jsonify
+from flask import request, jsonify, abort
 from os import getenv
 
 
@@ -39,3 +39,16 @@ def user_session_view():
         response.set_cookie(session_cookie_name, session_ID)
         return response
     return jsonify({"error": "wrong password"}), 401
+
+
+@app_views.route(
+        '/auth_session/logout', methods=['DELETE'], strict_slashes=False)
+def user_session_logout():
+    """
+    logs_out/deletes a session
+    """
+    from api.v1.app import auth
+    logout = auth.destroy_session(request)
+    if not logout:
+        abort(404)
+    return jsonify({}), 200
