@@ -21,7 +21,7 @@ def _hash_password(rawPassword: str) -> bytes:
 
 def _generate_uuid() -> str:
     """uuid string generator"""
-    return (uuid4())
+    return (str(uuid4()))
 
 
 class Auth:
@@ -63,7 +63,7 @@ class Auth:
             user = self._db.find_user_by(email=email)
             # print (str(user))
             sessionID = str(_generate_uuid())
-            # try using update_user form _db below if this fails.
+            # you can also use update_user form _db below as shown below.
             # self._db.update_user(user.id, session_id=sessionID)
             user.session_id = sessionID
             self._db._session.commit()
