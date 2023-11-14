@@ -100,6 +100,7 @@ class Auth:
 
     def get_reset_password_token(self, email: str) -> str:
         """
+        generates a new password reset tooken for the user
         """
         user = self._db.find_user_by(email=email)
         if user:
