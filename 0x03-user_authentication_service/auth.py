@@ -77,7 +77,7 @@ class Auth:
         """
         returns a User corresponding to the given session_id, or None
         """
-        if session_id:
+        if session_id is not None and session_id.strip():
             user = self._db.find_user_by(session_id=session_id)
             if user:
                 return user
