@@ -4,11 +4,12 @@ module: auth.py
 """
 import bcrypt
 from db import DB
-from typing import TypeVar
+from typing import TypeVar, Union
 from sqlalchemy.orm.exc import NoResultFound
 
 
-def _hash_password(rawPassword: str) -> bytes:
+
+def _hash_password(rawPassword: str) -> Union[bytes, None]:
     """
     takes in a password string arguments and returns bytes.
     """
