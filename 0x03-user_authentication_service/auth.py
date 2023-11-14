@@ -8,7 +8,6 @@ from typing import TypeVar
 from sqlalchemy.orm.exc import NoResultFound
 from user import User
 from uuid import uuid4
-from typing import Union, bool
 
 
 def _hash_password(rawPassword: str) -> bytes:
