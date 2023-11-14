@@ -2,9 +2,7 @@
 """
 Main file
 """
-import logging
 
-logging.basicConfig(level=logging.WARNING)
 from db import DB
 from user import User
 
