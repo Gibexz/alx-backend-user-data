@@ -6,9 +6,10 @@ import bcrypt
 from db import DB
 from typing import TypeVar
 from sqlalchemy.orm.exc import NoResultFound
+from user import User
 
 
-def _hash_password(rawPassword: str):
+def _hash_password(rawPassword: str) -> bytes:
     """
     takes in a password string arguments and returns bytes.
     """
@@ -25,7 +26,7 @@ class Auth:
         """ initialization method for the class """
         self._db = DB()
 
-    def register_user(self, email: str, password: str) -> TypeVar('User'):
+    def register_user(self, email: str, password: str) -> User:
         """Registers a new user"""
         try:
             if self._db.find_user_by(email=email) is not None:
