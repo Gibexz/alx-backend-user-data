@@ -8,7 +8,7 @@ from typing import TypeVar
 from sqlalchemy.orm.exc import NoResultFound
 
 
-def _hash_password(rawPassword: str) -> str:
+def _hash_password(rawPassword: str):
     """
     takes in a password string arguments and returns bytes.
     """
