@@ -69,6 +69,8 @@ class DB:
                 setattr(user, key, val)
             self._session.commit()
 
+            return None
+
         except NoResultFound:
             pass
         except InvalidRequestError:
