@@ -8,6 +8,7 @@ from typing import TypeVar
 from sqlalchemy.orm.exc import NoResultFound
 from user import User
 from uuid import uuid4
+from typing import Union, bool
 
 
 def _hash_password(rawPassword: str) -> bytes:
@@ -61,7 +62,7 @@ class Auth:
         """session generator method"""
         try:
             user = self._db.find_user_by(email=email)
-            # print (str(user))
+
             sessionID = str(_generate_uuid())
             # you can also use update_user form _db below as shown below.
             # self._db.update_user(user.id, session_id=sessionID)
